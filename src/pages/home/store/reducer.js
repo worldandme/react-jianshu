@@ -8,7 +8,7 @@ const defaultState = fromJS({
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case 'change_home_data':
+    case 'home/CHANGE_HOME_DATA':
       return state.merge({
         topicList: fromJS(action.topicList),
         articleList: fromJS(action.articleList),

@@ -4,8 +4,7 @@ import Topic from './components/Topic'
 import Writer from './components/Writer'
 import Recommend from './components/Recommend'
 import List from './components/List'
-import axios from 'axios'
-
+import { actionCreators } from './store'
 import {
   HomeWrapper,
   HomeRight,
@@ -34,25 +33,19 @@ class Home extends Component {
   //当页面挂载完毕执行，可用于请求页面数据
   componentDidMount() {
     const {changeHomeData} = this.props;
-    axios.get('/api/home.json').then((res) => {
-      const result = res.data.data;
-      const action = {
-        type: 'change_home_data',
-        topicList: result.topicList,
-        recommendList: result.recommendList,
-        articleList: result.articleList
-      }
-      changeHomeData(action);
-    })
+    changeHomeData()
   }
 }
+
+
 const mapState = (state)=>{
   return {}
 }
 const mapDispathToProps = (dispatch) => {
   return{
-    changeHomeData(action){
-      dispatch(action)
+    changeHomeData(){
+      const action = actionCreators.getHomeInfo();
+      dispatch(action);
     }
   }
 }
