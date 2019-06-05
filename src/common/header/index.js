@@ -1,5 +1,5 @@
 // import React from 'react';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group'
 // import * as actionCreators from './store/actionCreators'
@@ -86,7 +86,7 @@ import {
 //   );
 // }
 
-class Header extends Component {
+class Header extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

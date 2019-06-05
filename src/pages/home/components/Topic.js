@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 // 和redux做连接
 import { connect } from 'react-redux';
 import {
@@ -7,7 +7,7 @@ import {
 } from '../style';
 
 
-class Topic extends Component {
+class Topic extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {  }
